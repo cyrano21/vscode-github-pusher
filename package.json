@@ -31,6 +31,9 @@
         "Other"
     ],
     "main": "./out/extension.js",
+    "activationEvents": [
+        "onCommand:githubPusher.pushRepository"
+    ],
     "contributes": {
         "commands": [
             {
