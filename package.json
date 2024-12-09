@@ -2,7 +2,7 @@
     "name": "github-pusher",
     "displayName": "GitHub Pusher",
     "description": "Easily push repositories to GitHub directly from VSCode",
-    "version": "0.1.0",
+    "version": "0.1.6",
     "publisher": "cyrano21",
     "icon": "icon.png",
     "galleryBanner": {
