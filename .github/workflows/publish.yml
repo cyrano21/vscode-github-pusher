@@ -35,7 +35,7 @@ jobs:
           VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
         run: |
           echo "Publishing extension version ${{ github.ref_name }}"
-          vsce publish -p "$VSCE_PAT"
+          vsce publish -p "$VSCE_PAT" || echo "Publication failed"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
@@ -44,3 +44,12 @@ jobs:
             *.vsix
           draft: false
           prerelease: false
+
+      - name: Debug Information
+        if: failure()
+        run: |
+          echo "Workflow failed. Debugging information:"
+          pwd
+          ls -la
+          npm list vsce
+          vsce --version
