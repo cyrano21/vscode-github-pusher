@@ -1,0 +1,32 @@
+{
+    // Paramètres de débogage de propriétés
+    "properties.validation.enable": true,
+    "properties.validation.commentCharacter": "#",
+    "properties.validation.duplicateKeys": "warning",
+    
+    // Formatage et validation
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    
+    // Débogage détaillé
+    "debug.internalConsoleOptions": "openOnSessionStart",
+    "debug.showBreakpointsInOverviewRuler": true,
+    
+    // Configuration spécifique pour les extensions
+    "properties.validation.excludePatterns": [
+        "**/node_modules/**",
+        "**/out/**"
+    ],
+    
+    // Configuration ESLint
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.alwaysShowStatus": true
+}

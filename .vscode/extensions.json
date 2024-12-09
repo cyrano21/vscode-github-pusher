@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "formulahendry.vscode-properties",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "eg2.vscode-npm-script",
+        "christian-kohler.npm-intellisense",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-vscode.vscode-typescript-next"
+    ],
+    "unwantedRecommendations": [
+        "hookyqr.beautify",
+        "dbaeumer.jshint"
+    ]
+}
