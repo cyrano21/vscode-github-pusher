@@ -38,9 +38,17 @@ jobs:
           VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
         run: |
           echo "Publishing extension version ${{ github.ref_name }}"
+          echo "Attempting to publish with VSCE..."
           vsce publish -p "$VSCE_PAT" || {
-            echo "Publication failed"
-            exit 1
+            echo "First publish attempt failed. Retrying..."
+            sleep 10
+            vsce publish -p "$VSCE_PAT" || {
+              echo "Second publish attempt failed. Checking VSCE status..."
+              vsce ls
+              echo "Checking marketplace status..."
+              curl -v https://marketplace.visualstudio.com
+              exit 1
+            }
           }
 
       - name: Create GitHub Release
