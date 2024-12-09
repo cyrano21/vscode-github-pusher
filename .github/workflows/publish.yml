@@ -19,7 +19,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Install VSCE
         run: npm install -g @vscode/vsce
@@ -34,8 +34,8 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
         run: |
-          echo "Publishing extension..."
-          vsce publish -p $VSCE_PAT
+          echo "Publishing extension version ${{ github.ref_name }}"
+          vsce publish -p "$VSCE_PAT"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1

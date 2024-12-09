@@ -33,7 +33,7 @@
     "main": "./out/extension.js",
     "activationEvents": [
         "onCommand:githubPusher.pushRepository",
-        "*"
+        "onStartupFinished"
     ],
     "contributes": {
         "commands": [
