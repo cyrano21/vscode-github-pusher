@@ -21,18 +21,21 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Install VSCE
+        run: npm install -g @vscode/vsce
+
       - name: Compile TypeScript
         run: npm run compile
 
       - name: Package Extension
-        run: npx vsce package
+        run: vsce package
 
       - name: Publish to VS Code Marketplace
         env:
-          VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
+          VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
         run: |
           echo "Publishing extension..."
-          npx vsce publish -p $VSCE_TOKEN
+          vsce publish -p $VSCE_PAT
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
